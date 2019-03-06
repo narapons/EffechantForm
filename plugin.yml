@@ -7,5 +7,5 @@ author: mixpowder
 commands:
   ef:
     usage: /ef <help or enchant or effect or repair>
-    description: エフェクトorエンチャント購入のコマンド
+    description: エフェクト購入orエンチャント購入orアイテム修復のコマンド
 ...
