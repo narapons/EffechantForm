@@ -1,0 +1,11 @@
+---
+name: EffchantForm
+main: EffchantForm\Main
+version: 1.0.5
+api: 3.0.0
+author: mixpowder
+commands:
+  ef:
+    usage: /ef <help or enchant or effect or repair>
+    description: エフェクトorエンチャント購入のコマンド
+...
