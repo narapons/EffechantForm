@@ -1,4 +1,4 @@
 # EffechantForm
 
-アイテムの修復が可能に
+アイテムの修復が可能に<br />
 /ef repair
