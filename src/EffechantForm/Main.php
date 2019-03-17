@@ -1,6 +1,6 @@
 <?php
 
-namespace EffchantForm;
+namespace EffechantForm;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
