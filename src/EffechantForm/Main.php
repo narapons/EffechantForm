@@ -756,7 +756,7 @@ class Main extends PluginBase implements Listener {
           break;
           }elseif(strtolower(implode($args)) == "repair"){
               $money = EconomyAPI::getInstance()->myMoney($name);
-              if($money >= 5000){
+              if($money >= $this->EF->get("修復")){
                   foreach($sender->getInventory()->getContents() as $index => $item){
                       if($item->getDamage() > 0){
                           $sender->getInventory()->setItem($index, $item->setDamage(0));
