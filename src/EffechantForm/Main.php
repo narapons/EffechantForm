@@ -26,7 +26,6 @@ class Main extends PluginBase implements Listener {
 
     public function onEnable() {
         $this->getServer()->getPluginManager()->registerEvents($this,$this);
-        $this->getLogger()->info("§aEffchantFormを読み込みました! by mixpowder");
         if (!file_exists($this->getDataFolder())) {
             @mkdir($this->getDataFolder(), 0744, true);
         }
