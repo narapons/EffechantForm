@@ -1,6 +1,6 @@
 ---
-name: EffchantForm
-main: EffchantForm\Main
+name: EffechantForm
+main: EffechantForm\Main
 version: 1.0.5
 api: 3.0.0
 author: mixpowder
