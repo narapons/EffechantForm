@@ -587,8 +587,7 @@ class Main extends PluginBase implements Listener {
            if($money >= $this->EF->get("幸運")){
                $this->Economy->reduceMoney($name,$this->EF->get("幸運"));
                $item = $player->getInventory()->getItemInHand();
-               $enchantment = Enchantment::get("18");
-               $item->addEnchantment(new EnchantmentInstance($enchantment,"1"));
+               $item->addEnchantment(new EnchantmentInstance(Enchantment::getEnchantment("18"),"1"));
                $player->getInventory()->setItemInHand($item);
                $this->endMenu2($player);
                return true;
