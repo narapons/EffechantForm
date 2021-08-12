@@ -185,7 +185,7 @@ class Main extends PluginBase implements Listener {
           break;
                   
           case 2203:
-            if($data == 1){//効率強化Lv3
+            if($data == 0){//効率強化Lv3
             if($money >= $this->EF->get("効率強化3")){
               $this->Economy->reduceMoney($name,$this->EF->get("効率強化3"));
               $item = $player->getInventory()->getItemInHand();
@@ -199,7 +199,7 @@ class Main extends PluginBase implements Listener {
           break;
 
              case 2205:
-             if($data == 1){//効率強化Lv5
+             if($data == 0){//効率強化Lv5
               if($money >= $this->EF->get("効率強化5")){
                 $this->Economy->reduceMoney($name,$this->EF->get("効率強化5"));
                 $item = $player->getInventory()->getItemInHand();
@@ -233,7 +233,7 @@ class Main extends PluginBase implements Listener {
           break;
 
           case 2403:
-            if($data == 1){//耐久力Lv3
+            if($data == 0){//耐久力Lv3
             if($money >= $this->EF->get("耐久力3")){
               $this->Economy->reduceMoney($name,$this->EF->get("耐久力3"));
               $item = $player->getInventory()->getItemInHand();
@@ -247,7 +247,7 @@ class Main extends PluginBase implements Listener {
           break;
            
           case 2405:
-            if($data == 1){//耐久力Lv5
+            if($data == 0){//耐久力Lv5
             if($money >= $this->EF->get("耐久力5")){
               $this->Economy->reduceMoney($name,$this->EF->get("耐久力5"));
               $item = $player->getInventory()->getItemInHand();
