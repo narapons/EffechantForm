@@ -45,6 +45,8 @@ class Main extends PluginBase implements Listener {
               '耐久力1' => '100',
               '耐久力2' => '200',
               '耐久力3' => '300',
+              '耐久力4' => '400',
+              '耐久力5' => '500',
               '幸運' => '100',
               'エフェクト説明' => '時間は20×秒数のを書く。',
               'スピード1' => '100',
@@ -221,18 +223,22 @@ class Main extends PluginBase implements Listener {
             ]; //4
           $this->sendForm($player,"レベルを選んでください","\n\n",$buttons,2100);
         }elseif($data == 1){//効率強化
-        $buttons[] = [ 
+            /*  
+            $buttons[] = [ 
             'text' => "1Lv.", 
             ]; //0
             $buttons[] = [ 
             'text' => "2Lv.", 
             ]; //1
+            */
             $buttons[] = [ 
             'text' => "3Lv.", 
             ]; //2
+            /*
             $buttons[] = [ 
             'text' => "4Lv.", 
             ]; //3
+            */
             $buttons[] = [ 
             'text' => "5Lv.", 
             ]; //4
@@ -244,14 +250,25 @@ class Main extends PluginBase implements Listener {
           $this->sendForm($player,"レベルを選んでください","\n\n",$buttons,2300);
         }elseif($data == 3){//耐久力
         $buttons[] = [ 
+            /*
             'text' => "1Lv.", 
             ]; //0
             $buttons[] = [ 
             'text' => "2Lv.", 
             ]; //1
+            */
             $buttons[] = [ 
             'text' => "3Lv.", 
-            ]; //2
+            ];
+            //2
+            /*
+            $buttons[] = [ 
+            'text' => "4Lv.", 
+            ]; //3
+            */
+            $buttons[] = [ 
+            'text' => "5Lv.", 
+            ]; //4
           $this->sendForm($player,"レベルを選んでください","\n\n",$buttons,2400);
         }elseif($data == 4){//幸運
         $buttons[] = [
@@ -540,6 +557,22 @@ class Main extends PluginBase implements Listener {
             'text' => "いいえ", 
             ]; //1
           $this->sendForm($player,"これでいいですか？","耐久力3Lv\n値段:".$this->EF->get("耐久力3")."$",$buttons,2403);
+      }elseif($data == 3){//耐久力Lv4
+       $buttons[] = [ 
+            'text' => "はい", 
+            ]; //0
+            $buttons[] = [ 
+            'text' => "いいえ", 
+            ]; //1
+          $this->sendForm($player,"これでいいですか？","耐久力4Lv\n値段:".$this->EF->get("耐久力4")."$",$buttons,2404);
+      }elseif($data == 4){//耐久力Lv5
+       $buttons[] = [ 
+            'text' => "はい", 
+            ]; //0
+            $buttons[] = [ 
+            'text' => "いいえ", 
+            ]; //1
+          $this->sendForm($player,"これでいいですか？","耐久力5Lv\n値段:".$this->EF->get("耐久力5")."$",$buttons,2405);
         }
           break;
 
@@ -578,6 +611,34 @@ class Main extends PluginBase implements Listener {
               $this->Economy->reduceMoney($name,$this->EF->get("耐久力3"));
               $item = $player->getInventory()->getItemInHand();
             $item->addEnchantment(new EnchantmentInstance(Enchantment::getEnchantment("17"),"3"));
+            $player->getInventory()->setItemInHand($item);
+            $this->endMenu2($player);
+           }else{
+            $this->endMenu($player);
+           }
+        }
+          break;
+            
+          case 2404:
+            if($data == 0){//耐久力Lv4
+            if($money >= $this->EF->get("耐久力4")){
+              $this->Economy->reduceMoney($name,$this->EF->get("耐久力4"));
+              $item = $player->getInventory()->getItemInHand();
+            $item->addEnchantment(new EnchantmentInstance(Enchantment::getEnchantment("17"),"4"));
+            $player->getInventory()->setItemInHand($item);
+            $this->endMenu2($player);
+           }else{
+            $this->endMenu($player);
+           }
+        }
+          break;
+            
+          case 2405:
+            if($data == 0){//耐久力Lv5
+            if($money >= $this->EF->get("耐久力5")){
+              $this->Economy->reduceMoney($name,$this->EF->get("耐久力5"));
+              $item = $player->getInventory()->getItemInHand();
+            $item->addEnchantment(new EnchantmentInstance(Enchantment::getEnchantment("17"),"5"));
             $player->getInventory()->setItemInHand($item);
             $this->endMenu2($player);
            }else{
