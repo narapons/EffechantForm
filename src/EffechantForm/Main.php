@@ -172,7 +172,7 @@ class Main extends PluginBase implements Listener {
             $buttons[] = [ 
             'text' => "いいえ", 
             ]; //1
-          $this->sendForm($player,"これでいいですか？","効率強化3Lv\n値段:".$this->EF->get("効率強化3")."$",$buttons,2203)
+          $this->sendForm($player,"これでいいですか？","効率強化3Lv\n値段:".$this->EF->get("効率強化3")."$",$buttons,2203);
       }elseif($data == 1){//効率強化Lv5
        $buttons[] = [ 
             'text' => "はい", 
