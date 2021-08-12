@@ -753,24 +753,6 @@ class Main extends PluginBase implements Listener {
           }elseif(strtolower(implode($args)) == "enchant"){
           $this->startMenu($sender);
           break;
-          }elseif(strtolower(implode($args)) == "repair"){
-              $money = EconomyAPI::getInstance()->myMoney($name);
-              if($money >= $this->EF->get("修復")){
-                  foreach($sender->getInventory()->getContents() as $index => $item){
-                      if($item->getDamage() > 0){
-                          $sender->getInventory()->setItem($index, $item->setDamage(0));
-                          $this->Economy->reduceMoney($name,$this->EF->get("修復"));
-                          $this->endMenu4($sender);
-                          return true;
-                      }else{
-                          $this->errorMenu($sender);
-                      }
-                  }
-              return true;
-              }else{
-                  $this->endMenu($sender);
-              }
-          break;
         } elseif(strtolower(implode($args)) == "effect"){
       $this->startMenu2($sender);
       break;
