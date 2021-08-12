@@ -249,8 +249,8 @@ class Main extends PluginBase implements Listener {
             ]; //0
           $this->sendForm($player,"レベルを選んでください","\n\n",$buttons,2300);
         }elseif($data == 3){//耐久力
-        $buttons[] = [ 
             /*
+            $buttons[] = [
             'text' => "1Lv.", 
             ]; //0
             $buttons[] = [ 
