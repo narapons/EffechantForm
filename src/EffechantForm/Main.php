@@ -189,7 +189,7 @@ class Main extends PluginBase implements Listener {
             if($money >= $this->EF->get("効率強化3")){
               $this->Economy->reduceMoney($name,$this->EF->get("効率強化3"));
               $item = $player->getInventory()->getItemInHand();
-            $item->addEnchantment(new EnchantmentInstance(Enchantment::getEnchantment("15"),"3"));
+            $item->addEnchantment(new EnchantmentInstance(Enchantment::getEnchantment(15),3));
             $player->getInventory()->setItemInHand($item);
             $this->endMenu2($player);
            }else{
@@ -203,7 +203,7 @@ class Main extends PluginBase implements Listener {
               if($money >= $this->EF->get("効率強化5")){
                 $this->Economy->reduceMoney($name,$this->EF->get("効率強化5"));
                 $item = $player->getInventory()->getItemInHand();
-            $item->addEnchantment(new EnchantmentInstance(Enchantment::getEnchantment("15"),"5"));
+            $item->addEnchantment(new EnchantmentInstance(Enchantment::getEnchantment(15),5));
             $player->getInventory()->setItemInHand($item);
             $this->endMenu2($player);
           }else{
@@ -237,7 +237,7 @@ class Main extends PluginBase implements Listener {
             if($money >= $this->EF->get("耐久力3")){
               $this->Economy->reduceMoney($name,$this->EF->get("耐久力3"));
               $item = $player->getInventory()->getItemInHand();
-            $item->addEnchantment(new EnchantmentInstance(Enchantment::getEnchantment("17"),"3"));
+            $item->addEnchantment(new EnchantmentInstance(Enchantment::getEnchantment(17),3));
             $player->getInventory()->setItemInHand($item);
             $this->endMenu2($player);
            }else{
@@ -251,7 +251,7 @@ class Main extends PluginBase implements Listener {
             if($money >= $this->EF->get("耐久力5")){
               $this->Economy->reduceMoney($name,$this->EF->get("耐久力5"));
               $item = $player->getInventory()->getItemInHand();
-            $item->addEnchantment(new EnchantmentInstance(Enchantment::getEnchantment("17"),"5"));
+            $item->addEnchantment(new EnchantmentInstance(Enchantment::getEnchantment(17),5));
             $player->getInventory()->setItemInHand($item);
             $this->endMenu2($player);
            }else{
