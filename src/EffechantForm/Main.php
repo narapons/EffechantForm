@@ -205,7 +205,7 @@ class Main extends PluginBase implements Listener {
       }else{
           switch($pk->formId){
           case 2001:
-          if($data == 0){//防護
+          if($data == 1){//防護
          $buttons[] = [ 
             'text' => "1Lv.", 
             ]; //0
@@ -222,7 +222,7 @@ class Main extends PluginBase implements Listener {
             'text' => "5Lv.", 
             ]; //4
           $this->sendForm($player,"レベルを選んでください","\n\n",$buttons,2100);
-        }elseif($data == 1){//効率強化
+        }elseif($data == 2){//効率強化
             /*  
             $buttons[] = [ 
             'text' => "1Lv.", 
@@ -243,12 +243,12 @@ class Main extends PluginBase implements Listener {
             'text' => "5Lv.", 
             ]; //4
           $this->sendForm($player,"レベルを選んでください","\n\n",$buttons,2200);
-        }elseif($data == 2){//シルクタッチ
+        }elseif($data == 3){//シルクタッチ
         $buttons[] = [ 
             'text' => "1Lv.", 
             ]; //0
           $this->sendForm($player,"レベルを選んでください","\n\n",$buttons,2300);
-        }elseif($data == 3){//耐久力
+        }elseif($data == 4){//耐久力
             /*
             $buttons[] = [
             'text' => "1Lv.", 
@@ -270,7 +270,7 @@ class Main extends PluginBase implements Listener {
             'text' => "5Lv.", 
             ]; //4
           $this->sendForm($player,"レベルを選んでください","\n\n",$buttons,2400);
-        }elseif($data == 4){//幸運
+        }elseif($data == 5){//幸運
         $buttons[] = [
             'text' => "1Lv",
             ]; //0
@@ -279,7 +279,7 @@ class Main extends PluginBase implements Listener {
         break;
 
           case 2100:
-        if($data == 0){//防護Lv1
+        if($data == 1){//防護Lv1
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -287,7 +287,7 @@ class Main extends PluginBase implements Listener {
             'text' => "いいえ", 
             ]; //1
           $this->sendForm($player,"これでいいですか？","防護1Lv\n値段:".$this->EF->get("防護1")."$",$buttons,2101);
-      }elseif($data == 1){//防護Lv2
+      }elseif($data == 2){//防護Lv2
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -295,7 +295,7 @@ class Main extends PluginBase implements Listener {
             'text' => "いいえ", 
             ]; //1
           $this->sendForm($player,"これでいいですか？","防護2Lv\n値段:".$this->EF->get("防護2")."$",$buttons,2102);
-      }elseif($data == 2){//防護Lv5
+      }elseif($data == 3){//防護Lv5
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -303,7 +303,7 @@ class Main extends PluginBase implements Listener {
             'text' => "いいえ", 
             ]; //1
           $this->sendForm($player,"これでいいですか？","防護3Lv\n値段:".$this->EF->get("防護3")."$",$buttons,2103);
-      }elseif($data == 3){//防護Lv4
+      }elseif($data == 4){//防護Lv4
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -311,7 +311,7 @@ class Main extends PluginBase implements Listener {
             'text' => "いいえ", 
             ]; //1
           $this->sendForm($player,"これでいいですか？","防護4Lv\n値段:".$this->EF->get("防護4")."$",$buttons,2104);
-      }elseif($data == 4){//防護Lv5
+      }elseif($data == 5){//防護Lv5
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -325,7 +325,7 @@ class Main extends PluginBase implements Listener {
           
 
           case 2101://防護Lv1
-          if($data == 0){
+          if($data == 1){
             if($money >= $this->EF->get("防護1")){
                $item = $player->getInventory()->getItemInHand();
               $this->Economy->reduceMoney($name,$this->EF->get("防護1"));
@@ -339,7 +339,7 @@ class Main extends PluginBase implements Listener {
         break;
 
           case 2102:
-          if($data == 0){//防護Lv2
+          if($data == 1){//防護Lv2
             if($money >= $this->EF->get("防護2")){
               $this->Economy->reduceMoney($name,$this->EF->get("防護2"));
               $item = $player->getInventory()->getItemInHand();
@@ -353,7 +353,7 @@ class Main extends PluginBase implements Listener {
         break;
 
           case 2103:
-          if($data == 0){//防護Lv3
+          if($data == 1){//防護Lv3
             if($money >= $this->EF->get("防護3")){
               $this->Economy->reduceMoney($name,$this->EF->get("防護3"));
               $item = $player->getInventory()->getItemInHand();
@@ -367,7 +367,7 @@ class Main extends PluginBase implements Listener {
           break;
 
            case 2104:
-           if($data == 0){//防護Lv4
+           if($data == 1){//防護Lv4
             if($money >= $this->EF->get("防護4")){
               $this->Economy->reduceMoney($name,$this->EF->get("防護4"));
               $item = $player->getInventory()->getItemInHand();
@@ -381,7 +381,7 @@ class Main extends PluginBase implements Listener {
           break;
 
              case 2105:
-             if($data == 0){//防護Lv5
+             if($data == 1){//防護Lv5
               if($money >= $this->EF->get("防護5")){
                 $this->Economy->reduceMoney($name,$this->EF->get("防護5"));
                 $item = $player->getInventory()->getItemInHand();
@@ -395,7 +395,7 @@ class Main extends PluginBase implements Listener {
         break;
 
           case 2200:
-          if($data == 0){//効率強化Lv1
+          if($data == 1){//効率強化Lv1
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -403,7 +403,7 @@ class Main extends PluginBase implements Listener {
             'text' => "いいえ", 
             ]; //1
           $this->sendForm($player,"これでいいですか？","効率強化1Lv\n値段:".$this->EF->get("効率強化1")."$",$buttons,2201);
-      }elseif($data == 1){//効率強化Lv2
+      }elseif($data == 2){//効率強化Lv2
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -411,7 +411,7 @@ class Main extends PluginBase implements Listener {
             'text' => "いいえ", 
             ]; //1
           $this->sendForm($player,"これでいいですか？","効率強化2Lv\n値段:".$this->EF->get("効率強化2")."$",$buttons,2202);
-      }elseif($data == 2){//効率強化Lv3
+      }elseif($data == 3){//効率強化Lv3
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -419,7 +419,7 @@ class Main extends PluginBase implements Listener {
             'text' => "いいえ", 
             ]; //1
           $this->sendForm($player,"これでいいですか？","効率強化3Lv\n値段:".$this->EF->get("効率強化3")."$",$buttons,2203);
-      }elseif($data == 3){//効率強化Lv4
+      }elseif($data == 4){//効率強化Lv4
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -427,7 +427,7 @@ class Main extends PluginBase implements Listener {
             'text' => "いいえ", 
             ]; //1
           $this->sendForm($player,"これでいいですか？","効率強化4Lv\n値段:".$this->EF->get("効率強化4")."$",$buttons,2204);
-      }elseif($data == 4){//効率強化Lv5
+      }elseif($data == 5){//効率強化Lv5
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -438,7 +438,7 @@ class Main extends PluginBase implements Listener {
       }
           break;
           case 2201://効率強化Lv1
-            if($data == 0){
+            if($data == 1){
             if($money >= $this->EF->get("効率強化1")){
                $item = $player->getInventory()->getItemInHand();
               $this->Economy->reduceMoney($name,$this->EF->get("効率強化1"));
@@ -452,7 +452,7 @@ class Main extends PluginBase implements Listener {
         break;
 
           case 2202:
-            if($data == 0){//効率強化Lv2
+            if($data == 1){//効率強化Lv2
             if($money >= $this->EF->get("効率強化2")){
               $this->Economy->reduceMoney($name,$this->EF->get("効率強化2"));
               $item = $player->getInventory()->getItemInHand();
@@ -466,7 +466,7 @@ class Main extends PluginBase implements Listener {
         break;
 
           case 2203:
-            if($data == 0){//効率強化Lv3
+            if($data == 1){//効率強化Lv3
             if($money >= $this->EF->get("効率強化3")){
               $this->Economy->reduceMoney($name,$this->EF->get("効率強化3"));
               $item = $player->getInventory()->getItemInHand();
@@ -480,7 +480,7 @@ class Main extends PluginBase implements Listener {
           break;
 
            case 2204:
-            if($data == 0){//効率強化Lv4
+            if($data == 1){//効率強化Lv4
             if($money >= $this->EF->get("効率強化4")){
               $this->Economy->reduceMoney($name,$this->EF->get("効率強化4"));
               $item = $player->getInventory()->getItemInHand();
@@ -494,7 +494,7 @@ class Main extends PluginBase implements Listener {
           break;
 
              case 2205:
-             if($data == 0){//効率強化Lv5
+             if($data == 1){//効率強化Lv5
               if($money >= $this->EF->get("効率強化5")){
                 $this->Economy->reduceMoney($name,$this->EF->get("効率強化5"));
                 $item = $player->getInventory()->getItemInHand();
@@ -507,7 +507,7 @@ class Main extends PluginBase implements Listener {
         }
         break;
               case 2300:
-              if($data == 0){//シルクタッチLv1
+              if($data == 1){//シルクタッチLv1
               $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -519,7 +519,7 @@ class Main extends PluginBase implements Listener {
           break;
 
           case 2301://シルクタッチLv1
-          if($data == 0){
+          if($data == 1){
             if($money >= $this->EF->get("シルクタッチ1")){
                $item = $player->getInventory()->getItemInHand();
               $this->Economy->reduceMoney($name,$this->EF->get("シルクタッチ1"));
@@ -533,7 +533,7 @@ class Main extends PluginBase implements Listener {
         break;
 
         case 2400:
-        if($data == 0){//耐久力Lv1
+        if($data == 1){//耐久力Lv1
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -541,7 +541,7 @@ class Main extends PluginBase implements Listener {
             'text' => "いいえ", 
             ]; //1
           $this->sendForm($player,"これでいいですか？","耐久力1Lv\n値段:".$this->EF->get("耐久力1")."$",$buttons,2401);
-      }elseif($data == 1){//耐久力Lv2
+      }elseif($data == 2){//耐久力Lv2
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -549,7 +549,7 @@ class Main extends PluginBase implements Listener {
             'text' => "いいえ", 
             ]; //1
           $this->sendForm($player,"これでいいですか？","耐久力2Lv\n値段:".$this->EF->get("耐久力2")."$",$buttons,2402);
-      }elseif($data == 2){//耐久力Lv3
+      }elseif($data == 3){//耐久力Lv3
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -557,7 +557,7 @@ class Main extends PluginBase implements Listener {
             'text' => "いいえ", 
             ]; //1
           $this->sendForm($player,"これでいいですか？","耐久力3Lv\n値段:".$this->EF->get("耐久力3")."$",$buttons,2403);
-      }elseif($data == 3){//耐久力Lv4
+      }elseif($data == 4){//耐久力Lv4
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -565,7 +565,7 @@ class Main extends PluginBase implements Listener {
             'text' => "いいえ", 
             ]; //1
           $this->sendForm($player,"これでいいですか？","耐久力4Lv\n値段:".$this->EF->get("耐久力4")."$",$buttons,2404);
-      }elseif($data == 4){//耐久力Lv5
+      }elseif($data == 5){//耐久力Lv5
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -577,7 +577,7 @@ class Main extends PluginBase implements Listener {
           break;
 
           case 2401://耐久力Lv1
-            if($data == 0){
+            if($data == 1){
             if($money >= $this->EF->get("耐久力1")){
                $item = $player->getInventory()->getItemInHand();
               $this->Economy->reduceMoney($name,$this->EF->get("耐久力1"));
@@ -592,7 +592,7 @@ class Main extends PluginBase implements Listener {
         break;
 
           case 2402:
-            if($data == 0){//耐久力Lv2
+            if($data == 1){//耐久力Lv2
             if($money >= $this->EF->get("耐久力2")){
               $this->Economy->reduceMoney($name,$this->EF->get("耐久力2"));
               $item = $player->getInventory()->getItemInHand();
@@ -606,7 +606,7 @@ class Main extends PluginBase implements Listener {
         break;
 
           case 2403:
-            if($data == 0){//耐久力Lv3
+            if($data == 1){//耐久力Lv3
             if($money >= $this->EF->get("耐久力3")){
               $this->Economy->reduceMoney($name,$this->EF->get("耐久力3"));
               $item = $player->getInventory()->getItemInHand();
@@ -620,7 +620,7 @@ class Main extends PluginBase implements Listener {
           break;
             
           case 2404:
-            if($data == 0){//耐久力Lv4
+            if($data == 1){//耐久力Lv4
             if($money >= $this->EF->get("耐久力4")){
               $this->Economy->reduceMoney($name,$this->EF->get("耐久力4"));
               $item = $player->getInventory()->getItemInHand();
@@ -634,7 +634,7 @@ class Main extends PluginBase implements Listener {
           break;
             
           case 2405:
-            if($data == 0){//耐久力Lv5
+            if($data == 1){//耐久力Lv5
             if($money >= $this->EF->get("耐久力5")){
               $this->Economy->reduceMoney($name,$this->EF->get("耐久力5"));
               $item = $player->getInventory()->getItemInHand();
@@ -648,7 +648,7 @@ class Main extends PluginBase implements Listener {
           break;
           
           case 2500:
-           if($data == 0){//幸運1Lv
+           if($data == 1){//幸運1Lv
           $buttons[] = [ 
              'text' => "はい", 
              ]; //0
@@ -660,7 +660,7 @@ class Main extends PluginBase implements Listener {
           break;
           
           case 2501:
-           if($data == 0){//幸運1Lv
+           if($data == 1){//幸運1Lv
            if($money >= $this->EF->get("幸運")){
                $this->Economy->reduceMoney($name,$this->EF->get("幸運"));
                $item = $player->getInventory()->getItemInHand();
@@ -675,7 +675,7 @@ class Main extends PluginBase implements Listener {
            break;
            
           case 3000:
-          if($data == 0){//スピード
+          if($data == 1){//スピード
             $buttons[] = [ 
             'text' => "1Lv.", 
             ]; //0
@@ -683,7 +683,7 @@ class Main extends PluginBase implements Listener {
             'text' => "2Lv.", 
             ]; //1
           $this->sendForm($player,"レベルを選んでください","\n\n",$buttons,3100);
-          }elseif($data == 1){//採掘速度上昇
+          }elseif($data == 2){//採掘速度上昇
             $buttons[] = [ 
             'text' => "1Lv.", 
             ]; //0
@@ -691,7 +691,7 @@ class Main extends PluginBase implements Listener {
             'text' => "2Lv.", 
             ]; //1
           $this->sendForm($player,"レベルを選んでください","\n\n",$buttons,3200);
-          }elseif($data = 2){//暗視
+          }elseif($data = 3){//暗視
             $buttons[] = [ 
             'text' => "1Lv.", 
             ]; //0
@@ -700,7 +700,7 @@ class Main extends PluginBase implements Listener {
           break;
 
           case 3100:
-          if($data == 0){//スピードLv1
+          if($data == 1){//スピードLv1
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -708,7 +708,7 @@ class Main extends PluginBase implements Listener {
             'text' => "いいえ", 
             ]; //1
           $this->sendForm($player,"これでいいですか？","スピード1Lv\n値段:".$this->EF->get("スピード1")."$",$buttons,3101);
-      }elseif($data == 1){//スピードLv2
+      }elseif($data == 2){//スピードLv2
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -720,7 +720,7 @@ class Main extends PluginBase implements Listener {
           break;
 
           case 3101:
-          if($data == 0){//スピードLv1
+          if($data == 1){//スピードLv1
             if($money >= $this->EF->get("スピード1")){
               $this->Economy->reduceMoney($name,$this->EF->get("スピード1"));
               $player->addEffect(new EffectInstance(Effect::getEffect(1),$this->EF->get("スピード1のエフェクト時間"), 1, true));
@@ -732,7 +732,7 @@ class Main extends PluginBase implements Listener {
           break;
 
           case 3102:
-          if($data == 0){//スピードLv2
+          if($data == 1){//スピードLv2
             if($money >= $this->EF->get("スピード2")){
               $this->Economy->reduceMoney($name,$this->EF->get("スピード2"));
               $player->addEffect(new EffectInstance(Effect::getEffect(1),$this->EF->get("スピード1のエフェクト時間"), 2, true));
@@ -744,7 +744,7 @@ class Main extends PluginBase implements Listener {
           break;
 
           case 3200:
-          if($data == 0){//採掘速度上昇Lv1
+          if($data == 1){//採掘速度上昇Lv1
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -752,7 +752,7 @@ class Main extends PluginBase implements Listener {
             'text' => "いいえ", 
             ]; //1
           $this->sendForm($player,"これでいいですか？","採掘速度上昇1Lv\n値段:".$this->EF->get("採掘速度上昇1")."$",$buttons,3201);
-      }elseif($data == 1){//採掘速度上昇Lv2
+      }elseif($data == 2){//採掘速度上昇Lv2
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -764,7 +764,7 @@ class Main extends PluginBase implements Listener {
           break;
 
           case 3201:
-          if($data == 0){//採掘速度上昇Lv1
+          if($data == 1){//採掘速度上昇Lv1
             if($money >= $this->EF->get("採掘速度上昇1")){
               $this->Economy->reduceMoney($name,$this->EF->get("採掘速度上昇1"));
               $player->addEffect(new EffectInstance(Effect::getEffect(3),$this->EF->get("採掘速度上昇1のエフェクト時間"), 1, true));
@@ -776,7 +776,7 @@ class Main extends PluginBase implements Listener {
           break;
 
           case 3202:
-          if($data == 0){//採掘速度上昇Lv2
+          if($data == 1){//採掘速度上昇Lv2
             if($money >= $this->EF->get("採掘速度上昇2")){
               $this->Economy->reduceMoney($name,$this->EF->get("採掘速度上昇2"));
               $player->addEffect(new EffectInstance(Effect::getEffect(3),$this->EF->get("採掘速度上昇2のエフェクト時間"), 2, true));
@@ -788,7 +788,7 @@ class Main extends PluginBase implements Listener {
           break;
 
           case 3300:
-          if($data == 0){//暗視
+          if($data == 1){//暗視
        $buttons[] = [ 
             'text' => "はい", 
             ]; //0
@@ -800,7 +800,7 @@ class Main extends PluginBase implements Listener {
           break;
 
           case 3301:
-          if($data == 0){//暗視
+          if($data == 1){//暗視
             if($money >= $this->EF->get("暗視")){
               $this->Economy->reduceMoney($name,$this->EF->get("暗視"));
               $player->addEffect(new EffectInstance(Effect::getEffect(16),$this->EF->get("暗視のエフェクト時間"), 1, true));
