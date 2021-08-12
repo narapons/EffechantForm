@@ -82,44 +82,60 @@ class Main extends PluginBase implements Listener {
       public function startMenu($player) {
     
         $name = $player->getName();
+          
+        /*
         $buttons[] = [ 
         'text' => "防護", 
         'image' => [ 'type' => 'path', 'data' => "" ] 
         ]; //0
+        */
+          
         $buttons[] = [ 
         'text' => "効率強化", 
         'image' => [ 'type' => 'path', 'data' => "" ] 
         ]; //1
+        
+        /*
         $buttons[] = [ 
         'text' => "シルクタッチ", 
         'image' => [ 'type' => 'path', 'data' => "" ] 
         ]; //2
+        */
+          
         $buttons[] = [ 
         'text' => "耐久力", 
         'image' => [ 'type' => 'path', 'data' => "" ] 
         ]; //3
+         
+        /*  
         $buttons[] = [
         'text' => "幸運 (ベータ)",
         'image' => [ 'type' => 'path', 'data' => "" ]
         ];//4
+        */
+          
         $this->sendForm($player,"エンチャント選択","\n\n",$buttons,2001);
         $this->info[$name] = "form";
         }
         
       public function startMenu2($player) {
         $name = $player->getName();
+       
         $buttons[] = [ 
         'text' => "スピード", 
         'image' => [ 'type' => 'path', 'data' => "" ] 
         ]; //0
+          
         $buttons[] = [ 
         'text' => "採掘速度上昇", 
         'image' => [ 'type' => 'path', 'data' => "" ] 
         ]; //1
+          
         $buttons[] = [ 
         'text' => "暗視", 
         'image' => [ 'type' => 'path', 'data' => "" ] 
         ]; //2
+          
         $this->sendForm($player,"エフェクト選択","\n\n",$buttons,3000);
         $this->info[$name] = "form";
         }
@@ -753,12 +769,14 @@ class Main extends PluginBase implements Listener {
           }elseif(strtolower(implode($args)) == "enchant"){
           $this->startMenu($sender);
           break;
-        } elseif(strtolower(implode($args)) == "effect"){
-      $this->startMenu2($sender);
-      break;
-        }
-      default:
-      $buttons[] = [ 
+          /*
+          }elseif(strtolower(implode($args)) == "effect"){
+          $this->startMenu2($sender);
+          break;
+          */
+          }
+          default:
+          $buttons[] = [ 
             'text' => "閉じる", 
             ]; //0
           $this->sendForm($sender,"説明","コマンド一覧\n/efで説明！\n/ef enchantでエンチャントショップを開きます！\n/ef effectでエフェクトショップを開きます！\n/ef repairでアイテムを修復します！\n\n\n\n\n\n",$buttons,1001);
