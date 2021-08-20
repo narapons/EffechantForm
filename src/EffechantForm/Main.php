@@ -34,7 +34,8 @@ class Main extends PluginBase implements Listener {
               '効率強化3' => '500',
               '効率強化5' => '1000',
               '耐久力3' => '2000',
-              '耐久力5' => '3000'
+              '耐久力5' => '3000',
+              'シルクタッチ' => '50000'
             ));
             $this->Economy = EconomyAPI::getInstance();
       }
@@ -69,6 +70,11 @@ class Main extends PluginBase implements Listener {
         'text' => "耐久力", 
         'image' => [ 'type' => 'path', 'data' => "" ] 
         ]; //1
+        
+        $buttons[] = [ 
+        'text' => "シルクタッチ", 
+        'image' => [ 'type' => 'path', 'data' => "" ] 
+        ]; //2
          
         $this->sendForm($player,"エンチャント選択","\n\n",$buttons,2001);
         $this->info[$name] = "form";
@@ -127,15 +133,16 @@ class Main extends PluginBase implements Listener {
 
       public function onPrecessing(DataPacketReceiveEvent $event){
 
-  $player = $event->getPlayer();
-  $pk = $event->getPacket();
-  $name = $player->getName();
-  $money = EconomyAPI::getInstance()->myMoney($name);
-    if($pk->getName() == "ModalFormResponsePacket"){
-      $data = $pk->formData;
+      $player = $event->getPlayer();
+      $pk = $event->getPacket();
+      $name = $player->getName();
+      $money = EconomyAPI::getInstance()->myMoney($name);
+      if($pk->getName() == "ModalFormResponsePacket"){
+        $data = $pk->formData;
       if($data == "null\n"){
       }else{
-          switch($pk->formId){
+        switch($pk->formId){
+                
           case 2001:
         if($data == 0){//効率強化
 
@@ -160,7 +167,15 @@ class Main extends PluginBase implements Listener {
             'text' => "5Lv.", 
             ]; //1
             
-          $this->sendForm($player,"レベルを選んでください","\n\n",$buttons,2400);
+          $this->sendForm($player,"レベルを選んでください","\n\n",$buttons,2300);
+        }elseif($data == 2){//シルクタッチ
+            $buttons[] = [ 
+            'text' => "はい", 
+            ]; //0
+            $buttons[] = [ 
+            'text' => "いいえ", 
+            ]; //1
+          $this->sendForm($player,"これでいいですか？","シルクタッチ\n値段:".$this->EF->get("シルクタッチ")."$",$buttons,2400);
         }
         break;
 
@@ -212,7 +227,7 @@ class Main extends PluginBase implements Listener {
         }
         break;
               
-        case 2400:
+        case 2300:
         if($data == 0){//耐久力Lv3
        $buttons[] = [ 
             'text' => "はい", 
@@ -220,7 +235,7 @@ class Main extends PluginBase implements Listener {
             $buttons[] = [ 
             'text' => "いいえ", 
             ]; //1
-          $this->sendForm($player,"これでいいですか？","耐久力3Lv\n値段:".$this->EF->get("耐久力3")."$",$buttons,2403);
+          $this->sendForm($player,"これでいいですか？","耐久力3Lv\n値段:".$this->EF->get("耐久力3")."$",$buttons,2303);
       }elseif($data == 1){//耐久力Lv5
        $buttons[] = [ 
             'text' => "はい", 
@@ -228,11 +243,11 @@ class Main extends PluginBase implements Listener {
             $buttons[] = [ 
             'text' => "いいえ", 
             ]; //1
-          $this->sendForm($player,"これでいいですか？","耐久力5Lv\n値段:".$this->EF->get("耐久力5")."$",$buttons,2405);
+          $this->sendForm($player,"これでいいですか？","耐久力5Lv\n値段:".$this->EF->get("耐久力5")."$",$buttons,2305);
         }
           break;
 
-          case 2403:
+          case 2303:
             if($data == 0){//耐久力Lv3
             if($money >= $this->EF->get("耐久力3")){
               $this->Economy->reduceMoney($name,$this->EF->get("耐久力3"));
@@ -246,7 +261,7 @@ class Main extends PluginBase implements Listener {
         }
           break;
            
-          case 2405:
+          case 2305:
             if($data == 0){//耐久力Lv5
             if($money >= $this->EF->get("耐久力5")){
               $this->Economy->reduceMoney($name,$this->EF->get("耐久力5"));
@@ -259,6 +274,18 @@ class Main extends PluginBase implements Listener {
            }
         }
           break;
+                
+          case 2400:
+            if($data == 0){//シルクタッチ
+            if($money >= $this->EF->get("シルクタッチ")){
+              $this->Economy->reduceMoney($name,$this->EF->get("シルクタッチ"));
+              $item = $player->getInventory()->getItemInHand();
+            $item->addEnchantment(new EnchantmentInstance(Enchantment::getEnchantment(15),1));
+            $player->getInventory()->setItemInHand($item);
+            $this->endMenu2($player);
+           }else{
+            $this->endMenu($player);
+           }       
          
   }
 }
