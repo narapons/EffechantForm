@@ -285,7 +285,9 @@ class Main extends PluginBase implements Listener {
             $this->endMenu2($player);
            }else{
             $this->endMenu($player);
-           }       
+           }
+         }
+            break;
          
   }
 }
