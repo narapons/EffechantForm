@@ -9,8 +9,8 @@ commands:
     usage: "/ef <help or enchant or effect or repair>"
     description: "エフェクト購入orエンチャント購入orアイテム修復"
     permission: ef.command
-permission:
-  ef.commad:
+permissions:
+  ef.command:
     default: true
     description: "エフェクト購入orエンチャント購入orアイテム修復"
 ...
