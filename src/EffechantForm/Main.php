@@ -4,7 +4,7 @@ namespace EffechantForm;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
-use pocketmine\Player;
+use pocketmine\player\Player;;
 use pocketmine\event\Listener;
 use pocketmine\entity\Effect;
 use pocketmine\entity\EffectInstance;
@@ -145,7 +145,7 @@ class Main extends PluginBase implements Listener {
 
       public function onPrecessing(DataPacketReceiveEvent $event){
           
-        $player = $event->getPlayer();
+        $player = $event->getOrigin()->getPlayer();
         $pk = $event->getPacket();
         $name = $player->getName();
         $money = EconomyAPI::getInstance()->myMoney($name);
