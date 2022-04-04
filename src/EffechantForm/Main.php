@@ -151,8 +151,8 @@ class Main extends PluginBase implements Listener {
         $money = EconomyAPI::getInstance()->myMoney($name);
         if($pk->getName() == "ModalFormResponsePacket"){
             $data = $pk->formData;
-        if($data == "null\n"){
-        }else{
+            if($data == "null\n"){
+            }else{
             switch($pk->formId){
                 case 2001:
                     if($data == 0){//効率強化
@@ -285,6 +285,7 @@ class Main extends PluginBase implements Listener {
                         }
                     }
             break;
+            }
             }
         }
     }
