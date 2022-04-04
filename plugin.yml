@@ -1,11 +1,16 @@
 ---
 name: EffechantForm
 main: EffechantForm\Main
-version: 1.0.5
-api: 3.0.0
+version: 2.0.0
+api: 4.0.0
 author: mixpowder
 commands:
   ef:
-    usage: /ef <help or enchant or effect or repair>
-    description: エフェクト購入orエンチャント購入orアイテム修復
+    usage: "/ef <help or enchant or effect or repair>"
+    description: "エフェクト購入orエンチャント購入orアイテム修復"
+    permission: ef.command
+permission:
+  ef.commad:
+    default: true
+    description: "エフェクト購入orエンチャント購入orアイテム修復"
 ...
